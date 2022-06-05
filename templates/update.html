@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+<form class="row g-3" action="/update/{{data.srno}}" method="post">
+    <div class="col-md-6">
+      <label for="mainCategory" class="form-label">Main Category</label>
+      <input
+        type="text"
+        class="form-control"
+        name="mainCategory"
+        id="mainCategory"
+        value="{{data.main_category}}"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="subCategory" class="form-label">Sub Category</label>
+      <input
+        type="text"
+        class="form-control"
+        id="subCategory"
+        name="subCategory"
+        value="{{data.sub_category}}"
+      />
+    </div>
+    <div class="col-12">
+      <label for="details" class="form-label">Details</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="details"
+        name="desc"
+        rows="5"
+      >{{data.description}}</textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-outline-dark" name="update">
+        Update
+      </button>
+    </div>
+  </form>
+      
+{% endblock body %}
