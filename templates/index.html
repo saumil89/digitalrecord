@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% block body %}
+<form class="row g-3" action="#" method="post">
+  <div class="col-md-6">
+    <label for="mainCategory" class="form-label">Main Category</label>
+    <input
+      type="text"
+      class="form-control"
+      name="mainCategory"
+      id="mainCategory"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="subCategory" class="form-label">Sub Category</label>
+    <input
+      type="text"
+      class="form-control"
+      id="subCategory"
+      name="subCategory"
+    />
+  </div>
+  <div class="col-12">
+    <label for="details" class="form-label">Details</label>
+    <textarea
+      type="text"
+      class="form-control"
+      id="details"
+      name="desc"
+      placeholder="Enter Details"
+      rows="5"
+    ></textarea>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-outline-dark" name="add">Add</button>
+  </div>
+</form>
+<div class="container my-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Topic</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for data in show_data %}
+      <tr>
+        <td>{{ data.main_category }}</td>
+        <td>{{ data.sub_category }}</td>
+        <td>{{ data.description }}</td>
+        <td>
+          <a
+            href="/update/{{data.srno}}"
+            type="button"
+            class="btn btn-outline-dark"
+            name="update"
+            >Update</a
+          >
+        </td>
+        <td>
+          <a
+            href="/delete/{{data.srno}}"
+            type="button"
+            class="btn btn-outline-dark"
+            name="delete"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock body %}
